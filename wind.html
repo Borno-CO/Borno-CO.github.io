@@ -23,28 +23,28 @@
         
         <div class="collapse navbar-collapse" id="navbarSupportedContent">  
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Plots
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
-                        <a class="dropdown-item" href="humidity.html">Humidity</a>
-                        <a class="dropdown-item" href="temperature.html">Temperature</a>
-                        <a class="dropdown-item" href="wind.html">Wind</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.html">Home</a>
-                    </div>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Plots
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
+                <a class="dropdown-item" href="humidity.html">Humidity</a>
+                <a class="dropdown-item" href="temperature.html">Temperature</a>
+                <a class="dropdown-item" href="wind.html">Wind</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="index.html">Home</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="comparisons.html">Comparisons</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="cities.html">Cities</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="comparisons.html">Comparisons</a>
-                </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="cities.html">Cities</a>
-                    </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="data.html">Data</a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="data.html">Data</a>
+            </li>
             </ul>
         </div>
     </nav>      
@@ -52,21 +52,17 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                
-                <div class="jumbotron">
-            
-                    <h1 class="display-4">Summary: Latitude and Weather</h1>
-                    <hr class="my-4">
-                                   
-                            <div class="image-wrapper float-left pr-2">
-                                <img src="assets/images/Mean Temperature by Latitude Range.png" width=350 alt="Mean Temperature by Lattitude Range Map">
-                            </div>                   
-                            <p class="p1">The purpose of this project was to analyze how weather changes as you get closer to the equator. To accomplish this analysis, we first pulled data from the OpenWeatherMap API to assemble a dataset consisting of over 500 cities. Click <a href="cities.html">here</a> to see how the sample of cities was distributed across latitudes and longitudes.</p>
-                            <p class="p1">After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude. Factors we looked at included: temperature, cloudiness, wind speed, and humidity. This site provides the source data and visualizations created as part of the analysis, as well as descriptions of any observed correlations.</p>            
-                    
-                </div>
+                    <div class="jumbotron">
+                        <h1 class="display-4">Wind Speed</h1>
+                        <hr class="my-4">
+                        <div class="image pr-2">
+                            <a target="_blank" href="assets/images/Wind Speed by City Latitude.png">
+                                <img class="featured" src="assets/images/Wind Speed by City Latitude.png" width=425 alt="Mean Wind Speed by Lattitude Map">
+                            </a>
+                        </div>
+                        <p class="p1">There is no obvious relationship between latitude and wind, as illustrated by the scatter plot. On this particular day, winds were generally calm except for a handful of cities north of 60 degrees latitude. A time series analysis is warranted to study weather patterns over an entire calendar year and account for seasonality. </p>
+                    </div>
             </div>
-            
             <div class="col-md-4">
                 <div class="jump-to-plots">
                     <div class="container">
@@ -87,7 +83,7 @@
                             <div class="col-lg-6">
                                 
                                     <a class="nav-link" href="wind.html">
-                                        <img class="plot-pic" src="assets/images/Wind Speed by City Latitude.png" alt="wind Map" data-toggle="tooltip" data-placement="bottom" title="Click for Wind Speed Results">
+                                        <img class="wind" src="assets/images/Wind Speed by City Latitude.png" alt="wind Map" data-toggle="tooltip" data-placement="bottom" title="Click for Wind Speed Results">
                                     </a>                           
                             </div>
                             <div class="col-lg-6">                           
@@ -95,16 +91,16 @@
                                         <img class="plot-pic" src="assets/images/Cloudiness by City Latitude.png" alt="Cloudiness Map" data-toggle="tooltip" data-placement="bottom" title="Click for Cloudiness Results">
                                     </a>                           
                             </div>
-                            
-                        </div>
-                        <div class="row no-gutters">
                             <p class="p1">    Click any plot above for analysis.</p>
                         </div>
                     </div> 
                 </div>
-            </div>      
+            </div> 
+                            
         </div>
     </div>      
+    
 
 </body>
+
 </html>

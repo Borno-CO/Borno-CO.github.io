@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Latitude Homework Dashboard</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+        
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+<body>
+    
+    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+    
+        <a class="navbar-brand" href="index.html">Latitude</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">  
+            <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Plots
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="cloudiness.html">Cloudiness</a>
+                <a class="dropdown-item" href="humidity.html">Humidity</a>
+                <a class="dropdown-item" href="temperature.html">Temperature</a>
+                <a class="dropdown-item" href="wind.html">Wind</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="index.html">Home</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="comparisons.html">Comparisons</a>
+            </li>
+            <li class="nav-item">
+                    <a class="nav-link" href="cities.html">Cities</a>
+                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="data.html">Data</a>
+            </li>
+            </ul>
+        </div>
+    </nav>      
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="jumbotron">
+                    <h1 class="display-4">Temperature</h1>
+                    <hr class="my-4">
+                    <div class="image pr-2">
+                        <a target="_blank" href="assets/images/Temperature by City Latitude.png">
+                            <img class="featured" src="assets/images/Temperature by City Latitude.png" width=425 alt="Temperature by Lattitude Map">
+                        </a>
+                    </div>
+                    <p class="p1">Temperature does rise as one moves closer to the equator from either the northern or southern latitudes. This is more clearly seen in the northern latitudes where there are many more cities in latitudes above 40 degrees north.</p>
+                    <div class="image-wrapper float-left pr-2">
+                        <img id="meanTemp" src="assets/images/Mean Temperature by Latitude Range.png" alt="Mean Temperature by Latitude Range" style="width:100%;max-width:300px">
+                    </div>
+                    <p class="p1">The temperatures are roughly the same on either side of the equator (+/- 40 degrees).  However, when latitude exceeds +/-40 degrees, the average temperature in the southern latitudes is greater than the northern latitudes.  This is clearly seen when plotting the mean temperature across latitude <i>ranges</i> <strong>(click on plot at left)</strong> and is likely the affect of the earth's tilt in mid-November.</p>
+                    
+                    <div class="container">
+                        <div id="meanTempModal" class="modal">
+                            <span class="close">&times;</span>
+                            <img class="modal-content" id="img01">
+                            <div id="caption"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="jump-to-plots">
+                    <div class="container">
+                            <h1 class="display-4">Visualizations</h1>
+                            <hr class="my-4">
+                        <div class="row no-gutters">
+                            <div class="col-lg-6">                                                 
+                                    <a class="nav-link" href="temperature.html">
+                                        <img class="temp" src="assets/images/Temperature by City Latitude.png" alt="Temperature Map" data-toggle="tooltip" data-placement="bottom" title="Click for Temperature Results">
+                                    </a>                           
+                            </div>
+                            <div class="col-lg-6">
+                                
+                                    <a class="nav-link" href="humidity.html">
+                                        <img class="plot-pic" src="assets/images/Humidity by City Latitude.png" alt="Humidity Map" data-toggle="tooltip" data-placement="bottom" title="Click for Humidity Results">
+                                    </a>                           
+                            </div>
+                            <div class="col-lg-6">
+                                
+                                    <a class="nav-link" href="wind.html">
+                                        <img class="plot-pic" src="assets/images/Wind Speed by City Latitude.png" alt="wind Map" data-toggle="tooltip" data-placement="bottom" title="Click for Wind Speed Results">
+                                    </a>                           
+                            </div>
+                            <div class="col-lg-6">                           
+                                    <a class="nav-link" href="cloudiness.html">
+                                        <img class="plot-pic" src="assets/images/Cloudiness by City Latitude.png" alt="Cloudiness Map" data-toggle="tooltip" data-placement="bottom" title="Click for Cloudiness Results">
+                                    </a>                           
+                            </div>
+                            <p class="p1">    Click any plot above for analysis.</p>
+                        </div>
+
+
+                    </div> 
+                </div>
+            </div> 
+                            
+        </div>
+    </div>      
+    <script>
+            // Get the modal
+            var modal = document.getElementById("meanTempModal");
+            
+            // Get the image and insert it inside the modal - use its "alt" text as a caption
+            var img = document.getElementById("meanTemp");
+            var modalImg = document.getElementById("img01");
+            var captionText = document.getElementById("caption");
+            img.onclick = function(){
+              modal.style.display = "block";
+              modalImg.src = this.src;
+              captionText.innerHTML = this.alt;
+            }
+            
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() { 
+              modal.style.display = "none";
+            }
+    </script> 
+
+</body>
+
+</html>
